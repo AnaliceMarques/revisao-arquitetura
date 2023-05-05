@@ -27,7 +27,7 @@ CREATE TABLE playlists (
     likes INTEGER DEFAULT (0) NOT NULL,
     dislikes INTEGER DEFAULT (0) NOT NULL,
     created_at TEXT DEFAULT (DATETIME()) NOT NULL,
-    update_at TEXT DEFAULT (DATETIME()) NOT NULL,
+    updated_at TEXT DEFAULT (DATETIME()) NOT NULL,
     FOREIGN KEY (creator_id) REFERENCES users (id)
         ON UPDATE CASCADE
         ON DELETE CASCADE
@@ -56,8 +56,6 @@ VALUES
     ('u003', 'p001', 1),
     ('u001', 'p002', 1),
     ('u003', 'p002', 0);
-
-SELECT * FROM likes_dislikes;
 
 UPDATE playlists
 SET likes = 2
