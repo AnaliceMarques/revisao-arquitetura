@@ -7,7 +7,9 @@ export interface CreatePlaylistInputDTO {
 
 export type CreatePlaylistOutputDTO = undefined;
 
-export const createPlaylistSchema = z.object({
-  name: z.string().min(1),
-  token: z.string().min(1),
-});
+export const createPlaylistSchema = z
+  .object({
+    name: z.string().min(1),
+    token: z.string().min(1),
+  })
+  .transform((data) => data as CreatePlaylistInputDTO);
