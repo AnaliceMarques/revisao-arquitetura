@@ -7,7 +7,7 @@ export interface EditPlaylistInputDTO {
   idToEdit: string;
 }
 
-export type EditPlaylistOuputDTO = undefined;
+export type EditPlaylistOutputDTO = undefined;
 
 export const EditPlaylistSchema = z
   .object({

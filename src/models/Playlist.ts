@@ -8,6 +8,17 @@ export interface PlaylistDB {
   updated_at: string;
 }
 
+export interface PlaylistDBWhitCreatorName {
+  id: string;
+  creator_id: string;
+  name: string;
+  likes: number;
+  dislikes: number;
+  created_at: string;
+  updated_at: string;
+  creator_name: string;
+}
+
 export interface PlaylistModel {
   id: string;
   name: string;
@@ -19,6 +30,17 @@ export interface PlaylistModel {
     id: string;
     name: string;
   };
+}
+
+export interface LikeDislikeDB {
+  user_id: string;
+  playlist_id: string;
+  like: number;
+}
+
+export enum PLAYLIST_LIKE {
+  ALREADY_LIKED = "ALREADY LIKED",
+  ALREADY_DISLIKED = "ALREADY DISLIKE",
 }
 
 export class Playlist {
@@ -57,6 +79,14 @@ export class Playlist {
     this.likes = value;
   }
 
+  public addLike = (): void => {
+    this.likes++;
+  };
+
+  public removeLike = (): void => {
+    this.likes--;
+  };
+
   public getDislikes(): number {
     return this.dislikes;
   }
@@ -64,6 +94,14 @@ export class Playlist {
   public setDislikes(value: number): void {
     this.dislikes = value;
   }
+
+  public addDislike = (): void => {
+    this.dislikes++;
+  };
+
+  public removeDislike = (): void => {
+    this.dislikes--;
+  };
 
   public getCreatedAt(): string {
     return this.createdAt;
